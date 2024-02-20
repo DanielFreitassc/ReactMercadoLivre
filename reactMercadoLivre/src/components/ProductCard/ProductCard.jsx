@@ -1,23 +1,24 @@
 import React from 'react';
 import './ProductCard.css'
 import { FaCartPlus } from "react-icons/fa";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
+import formatCurrency from "../../utils/formatCurrency";
+
 
 function ProductCard({data}) {
-
-    const {title, thumbnail, price} = data;
+    const { title, thumbnail, price } = data;
     
     return (  
         <section className="product-card">
-
-            <img 
-            src={thumbnail}
-            alt="product" 
-            className='card__image'
+            
+            <img
+            src={thumbnail.replace(/\w\.jpg/gi, 'W.jpg')}
+            alt="product"
+            className="card__image"
             />
 
             <div className='card__infos'>
-                <h2 className='card__price'>{price}</h2>
+                <h2 className='card__price'>{formatCurrency(price, "BRL")}</h2>
                 <h2 className="card__title">{title}</h2>
             </div>
 
@@ -31,5 +32,5 @@ function ProductCard({data}) {
 export default ProductCard;
 
 ProductCard.propTypes = {
-    data: PropTypes.shape({}).isRequired,
-};
+    data: propTypes.shape({}),
+  }.isRequired;
