@@ -5,6 +5,9 @@ import AppContext from '../../context/AppContext';
 
 function Cart() {
     const {cartItems} = useContext(AppContext)
+    const totalPrice = cartItems.reduce((acumulador, item)=> {
+
+    }, 0);
     return (  
         <section className='cart'>
             <div className='cart-items'>
