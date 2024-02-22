@@ -8,11 +8,11 @@ function CartItem({data}) {
 
     const {cartItems , setCartItems} = useContext(AppContext);
     const {id, thumbnail, title, price} = data;
+    
     const handleRemoveItem = () => {
         const updatedItems = cartItems.filter((item) => item.id != id);
         setCartItems(updatedItems);
-
-    }
+    };
     return (  
         <section className='cart-item'>
             <img 
